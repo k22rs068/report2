@@ -61,12 +61,13 @@
 
 
     function searchHP(){
-       let level = parseInt($("#HP").val(),10);
+       let HP = parseInt($("#HP").val(),10);
        let TestDataClass = ncmb.DataStore(db);
        TestDataClass.greaterThan("HP",HP).fetchAll()
        .then(function(results){
            showResults(results);
        })
+    }
 
 
     function showResults(results) {
