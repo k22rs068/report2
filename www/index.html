@@ -60,6 +60,15 @@
     }
 
 
+    function searchHP(){
+       let level = parseInt($("#HP").val(),10);
+       let TestDataClass = ncmb.DataStore(db);
+       TestDataClass.greaterThan("HP",HP).fetchAll()
+       .then(function(results){
+           showResults(results);
+       })
+
+
     function showResults(results) {
       // テーブルのヘッダを生成
       let msg = "<table><tr><th>name</th><th>rare</th><th>attack</th><th>speed</th><th>HP</th></tr>";
@@ -100,7 +109,8 @@
     <br>
     <button class="btn" onclick="searchrare()">rare</button>
     <button class="btn" onclick="searchattack()">attack &gt</button>
-    <button class="btn" onclick="searchspeed()">speed &lt</button>
+    <button class="btn" onclick="searchspeed()">speed &gt</button>
+    <button class="btn" onclick="searchHP()">HP &gt</button>
   </div>
   <div id="message">message area</div>
 </body>
