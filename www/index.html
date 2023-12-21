@@ -69,6 +69,15 @@
        })
     }
 
+    function searchelement(){
+       let element = $("#element").val();
+       let TestDataClass = ncmb.DataStore(db);
+       TestDataClass.equalTo("element",element).fetchAll()
+       .then(function(results){
+           showResults(results);
+       })
+    }
+
 
 
     function showResults(results) {
